@@ -12,7 +12,7 @@
  function intervalText(task){if(task.trigger)return task.trigger;if(!task.interval)return task.strategy==='correctief'?'Bij vastgesteld defect / melding':task.missing?'Open punt: te bevestigen':'Geen vast interval';const i=task.interval,parts=[];if(i.hours)parts.push(`${number(i.hours)} draaiuren`);if(i.months)parts.push(`${i.months} maanden`);if(i.days)parts.push(i.days===1?'dagelijks':`elke ${i.days} kalenderdagen`);return parts.join(' óf ') + (parts.length>1?' — wat eerst komt':'');}
  function refLink(asset){const a=make('a',asset,'asset-link');a.href=`#inv-${asset}`;return a;}
  function cell(row,text,cls){const td=make('td',text,cls);row.append(td);return td;}
- function showError(message){$('case-error').textContent=message;$('case-error').hidden=false;$('simulation-output').hidden=true;$('simulation-status').textContent='Geen geldige planning: corrigeer de invoer.';result=null;}
+ function showError(message){$('case-error').textContent=message;$('case-error').hidden=false;$('simulation-output').hidden=true;$('simulation-status').textContent='Geen geldige planning: corrigeer de invoer.';result=null;window.dispatchEvent(new CustomEvent('compressor-plan-change',{detail:null}));}
  function config(){return{variant:$('variant').value,oil:$('oil').value,silencer:$('silencer').checked,autoDrain:$('auto-drain').checked,asset:$('asset-id').value.trim(),location:$('location').value.trim()};}
  function renderMachine(){
   if(!$('machine-form').checkValidity()||!/^[-A-Za-z0-9_]{1,40}$/.test($('asset-id').value)||!$('location').value.trim()){showError('Controleer de machinevelden: een geldig asset-ID en een locatie zijn verplicht.');return;}
@@ -59,6 +59,7 @@
    $('case-error').hidden=true;$('simulation-output').hidden=false;
    $('simulation-status').textContent=`Bijgewerkt: ${machine.model.name} · ${number(lastInput.hoursPerDay)} uur/dag · ${lastInput.workdays.length} productiedagen/week · ${date(lastInput.start)} t/m ${date(result.bundled.end)}. Historiek is invoer, geen bevestiging van uitgevoerd onderhoud.`;
    renderSimulation();
+   window.dispatchEvent(new CustomEvent('compressor-plan-change',{detail:{machine,input:lastInput,result,intervalText}}));
   }catch(error){showError(error.message);}
  }
  function renderSimulation(){

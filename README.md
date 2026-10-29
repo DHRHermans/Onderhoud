@@ -61,3 +61,9 @@ Educatieve website en lesmateriaal: gemaakt door dhr. Hermans. Deze vermelding s
 Lees [bronnotities en rekenafspraken](docs/compressor-bronnen.md) voor de overgenomen intervallen, het ontbrekende LE 10-filterinterval, de conservatieve 3.000 uur-keuze, voorgestelde predictieve frequenties en grenzen van de stilstandsvergelijking. De PDF wordt niet integraal gepubliceerd.
 
 Validatie: `node --test tests/planner.test.cjs` controleert modelkoppelingen, deadlines, kalendermaanden, stilstand, achterstand en bundeling. `node tests/compressor-browser.cjs` gebruikt Playwright en de bestaande lokale server vanuit `/workspace` voor de interactieve case en CSV-export. De generieke regressiecontrole blijft `node tests/browser.cjs`.
+
+## Beknopte weekchecklist
+
+De compressorcase toont een jaarmatrix naar de opbouw van het aangeleverde voorbeeld `onderhoudslijst compressor.pdf`: taken en intervallen links, maandgroepen en ISO-weeknummers bovenaan, kleurcodes C/O/V en afvinkvakjes in de geplande weken. De inhoud blijft afgeleid van de LE-handleiding en de huidige simulatie, niet van de taakvoorbeelden voor een andere compressor. Jaar en onderhoudstype zijn selecteerbaar. Correctieve en overige gebeurtenistaken blijven zichtbaar zonder verzonnen kalenderplanning.
+
+`checklist.js` ontvangt de berekende scenario’s via `compressor-plan-change`. Vinkjes zijn tijdelijke lesregistratie per taak/week; ze veranderen geen servicehistoriek en wissen bij andere scenario-invoer of herladen. Dagelijkse controles worden als C×n samengevat zonder hun frequentie te verlagen. Een eigen CSV-export en afdrukweergave (A4 liggend, alleen checklist) zijn beschikbaar. Validatie: `node tests/checklist-browser.cjs`.
