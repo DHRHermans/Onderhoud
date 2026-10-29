@@ -23,7 +23,7 @@ Alle paden zijn relatief, zodat de site onder `/Onderhoud/` werkt. `.nojekyll` s
 ## Inhoud aanvullen
 
 - `content/lessons.js`: leskaarten, verdiepende uitleg en meerkeuzevragen. Elke vraag heeft opties, een nulgebaseerde `answer` en een verklaring.
-- `index.html`: vergelijking, praktijkaanpak, begrippen en bronvermelding.
+- `index.html`: vergelijking, praktijkaanpak, inventarislijsten met gekoppelde onderhoudstaken, LO TO TO, begrippen en bronvermelding.
 - `styles.css`: responsive vormgeving en printweergave.
 - `app.js`: tabbladen en quiz met feedback en resultaatreview.
 
@@ -36,3 +36,7 @@ De vergelijking is gebaseerd op het geraadpleegde publieke [Microsoft Predictive
 ## Controle
 
 `node --check app.js` en `node --check content/lessons.js` controleren de JavaScript-syntaxis. `tests/browser.cjs` gebruikt Playwright (extern geïnstalleerd) voor echte browsercontroles van tabbladen, quiz, herkansing, mobiele weergave, lokale links en het projectpad van GitHub Pages. Zie het script voor de uitvoeropdracht.
+
+## Inventaris en veiligstellen
+
+De site toont een fictieve koppeling via asset-ID en taak-ID tussen inventaris, onderhoudsplan en werkorder/historiek. Eigen inventarislijsten worden nog niet automatisch geïmporteerd. LO TO TO (Lock Out, Tag Out, Try Out) wordt uitgelegd als veiligheidsprincipe voor alle strategieën; de tekst vervangt geen opleiding of machinegebonden procedure. De kennischeck bevat zeven situaties, inclusief inventariskoppeling en energie-isolatie.
