@@ -44,3 +44,11 @@ De site toont een fictieve koppeling via asset-ID en taak-ID tussen inventaris, 
 De LO TO TO-sectie bevat ook een leeroverzicht van de Gouden 8 voor elektrische werkzaamheden: voorbereiding, scheiden, beveiligen tegen wederinschakeling, spanningsloosheid vaststellen, aarden/kortsluiten waar vereist, afschermen/afbakenen, vrijgave en gecontroleerde herinschakeling. De indeling kan per organisatie verschillen; de plaatselijke elektrische werkprocedure blijft leidend.
 
 De door de gebruiker aangeleverde [Volta-fiche De Gouden Acht (2020)](https://volta-org.be/media/e4igcxbr/volta-informatie_gouden_acht_2020.pdf) is rechtstreeks gelinkt. Downloaden bleef tijdens deze wijziging geblokkeerd door het cloudnetwerkbeleid (HTTP 403); de inhoud is dus niet onafhankelijk geraadpleegd. De acht stappen op de site zijn een algemeen leeroverzicht, geen geverifieerde transcriptie van Volta. Een aparte vergelijking verduidelijkt hoe LO TO TO ook mechanische energie beheerst, en waarom elektrische maatregelen alleen achterwege blijven als de risicoanalyse en bevoegde beoordeling bevestigen dat ze niet van toepassing zijn.
+
+## Eigen veiligheidsillustraties
+
+`content/safety.js` bevat zes reeksen van acht leerfasen: elektrisch, mechanisch, pneumatisch, hydraulisch, thermisch en zwaartekracht. De 48 originele SVG-principebeelden in `assets/safety/` zijn scherp schaalbaar en afzonderlijk te openen. `safety.js` toont de gekozen reeks met bijschriften en toetsenbordbediening. `assets/safety/energiebronnen.png` is een eigen met beeldgeneratie gemaakte conceptuele overzichtsillustratie; deze is geen technische tekening of weergave van een bewezen veilige toestand.
+
+De elektrische reeks behandelt de thema’s van de Gouden 8; de overige achtfasenreeksen zijn eigen didactische indelingen en worden niet aan Volta toegeschreven. Geen van de beelden vervangt een machinegebonden procedure. De tekst behandelt onder meer restdruk, accumulatoren, veren, lastondersteuning en controle van de veilige toestand. Fasen zijn leeronderwerpen: de veilige volgorde van handelingen volgt uit de installatieprocedure (bijvoorbeeld eerst een last borgen voordat druk wordt afgebouwd).
+
+Educatieve website en lesmateriaal: gemaakt door dhr. Hermans. Deze vermelding staat zichtbaar bij de tekeningen en in de voettekst.

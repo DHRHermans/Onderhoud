@@ -20,6 +20,19 @@ const assert = require('node:assert/strict');
  await page.getByRole('tabpanel').getByText('Meten is het begin.',{exact:false}).waitFor();
  await page.getByRole('tab',{name:'Predictief',exact:true}).press('ArrowRight');
  assert.equal(await page.getByRole('tab',{name:'Correctief',exact:true}).getAttribute('aria-selected'),'true');
+ // Validate every series, all 48 locally served drawings, and keyboard navigation.
+ const energyTabs=page.locator('#energy-tabs [role=tab]');
+ assert.equal(await energyTabs.count(),6);
+ for(let i=0;i<6;i++){
+   await energyTabs.nth(i).click();
+   assert.equal(await page.locator('.drawing-card').count(),8);
+   const sources=await page.locator('.drawing-card img').evaluateAll(images=>images.map(image=>image.src));
+   for(const source of sources){const asset=await page.request.get(source);assert.equal(asset.status(),200);assert.match(await asset.text(),/<svg/);}
+ }
+ await energyTabs.nth(5).press('ArrowRight');
+ assert.equal(await energyTabs.nth(0).getAttribute('aria-selected'),'true');
+ assert.equal(await page.locator('footer').getByText('Educatieve website · Gemaakt door dhr. Hermans',{exact:false}).count(),1);
+ const overview=await page.request.get('http://127.0.0.1:8000/Onderhoud/assets/safety/energiebronnen.png');assert.equal(overview.status(),200);
  const answers=[0,1,2,1,2,1,2];
  for(let i=0;i<answers.length;i++){
    await page.locator('.quiz-options button').nth(answers[i]).click();
@@ -44,5 +57,5 @@ const assert = require('node:assert/strict');
  await page.screenshot({path:'/tmp/onderhoud-desktop.png',fullPage:true});
  await page.setViewportSize({width:375,height:812});await page.screenshot({path:'/tmp/onderhoud-mobile.png',fullPage:true});
  const noJs=await browser.newPage({javaScriptEnabled:false});await noJs.goto('http://127.0.0.1:8000/Onderhoud/');await noJs.getByRole('heading',{name:'Kies met een reden.'}).waitFor();
- assert.deepEqual(errors,[]);await browser.close();console.log('PASS: project path, 3 lesson tabs + keyboard, 7 correct quiz answers, wrong answer feedback, result review, restart, 3 viewport widths, internal anchors, no-JS fallback, no browser errors.');
+ assert.deepEqual(errors,[]);await browser.close();console.log('PASS: project path, 3 lesson tabs + keyboard, 48 drawings across 6 series, author credit, 7 correct quiz answers, wrong answer feedback, result review, restart, 3 viewport widths, internal anchors, no-JS fallback, no browser errors.');
 })().catch(error=>{console.error(error);process.exit(1);});
