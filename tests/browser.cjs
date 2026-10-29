@@ -11,6 +11,8 @@ const assert = require('node:assert/strict');
  await page.getByRole('heading',{name:'LO TO TO: veiligstellen vóór de ingreep.'}).waitFor();
  assert.equal(await page.locator('#inventaris tbody tr').count(),3);
  assert.equal(await page.locator('#lototo .strategy-card').count(),3);
+ assert.equal(await page.locator('#gouden-acht .golden-list > li').count(),8);
+ await page.getByRole('heading',{name:'De Gouden 8: van voorbereiding tot veilige herinschakeling.'}).waitFor();
  await page.getByRole('tab',{name:'Predictief',exact:true}).click();
  await page.getByRole('tabpanel').getByText('Meten is het begin.',{exact:false}).waitFor();
  await page.getByRole('tab',{name:'Predictief',exact:true}).press('ArrowRight');

@@ -40,3 +40,7 @@ De vergelijking is gebaseerd op het geraadpleegde publieke [Microsoft Predictive
 ## Inventaris en veiligstellen
 
 De site toont een fictieve koppeling via asset-ID en taak-ID tussen inventaris, onderhoudsplan en werkorder/historiek. Eigen inventarislijsten worden nog niet automatisch geïmporteerd. LO TO TO (Lock Out, Tag Out, Try Out) wordt uitgelegd als veiligheidsprincipe voor alle strategieën; de tekst vervangt geen opleiding of machinegebonden procedure. De kennischeck bevat zeven situaties, inclusief inventariskoppeling en energie-isolatie.
+
+De LO TO TO-sectie bevat ook een leeroverzicht van de Gouden 8 voor elektrische werkzaamheden: voorbereiding, scheiden, beveiligen tegen wederinschakeling, spanningsloosheid vaststellen, aarden/kortsluiten waar vereist, afschermen/afbakenen, vrijgave en gecontroleerde herinschakeling. De indeling kan per organisatie verschillen; de plaatselijke elektrische werkprocedure blijft leidend.
+
+Volta is op aanraden van de gebruiker als aanvullende verwijzing bij de Gouden 8 opgenomen. De website was tijdens deze wijziging niet bereikbaar door het cloudnetwerkbeleid (CONNECT 403). De exacte fiche is daardoor nog niet geraadpleegd of rechtstreeks gelinkt; de acht stappen zijn een algemeen leeroverzicht en worden niet als geverifieerde Volta-tekst gepresenteerd.
