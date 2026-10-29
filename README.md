@@ -1,0 +1,38 @@
+# Onderhoud
+
+Nederlandstalige educatieve website over preventief, predictief en correctief onderhoud. Statische HTML, CSS en JavaScript; geen build, account, API-sleutels of externe runtime-afhankelijkheden nodig.
+
+## Lokaal bekijken
+
+```sh
+cd /workspace/Onderhoud
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+Open lokaal poort 8000. De site werkt ook direct via `index.html`. De quiz bewaart antwoorden alleen zolang de pagina openstaat; er worden geen persoonsgegevens verzameld.
+
+## GitHub Pages
+
+1. Zorg dat deze bestanden op `main` staan.
+2. Open **Settings → Pages → Build and deployment**.
+3. Kies **Deploy from a branch**, branch **main**, map **/ (root)** en sla op.
+4. De verwachte URL is `https://dhrhermans.github.io/Onderhoud/`. Controleer de Pages-status voordat je de link deelt.
+
+Alle paden zijn relatief, zodat de site onder `/Onderhoud/` werkt. `.nojekyll` schakelt Jekyll-verwerking uit.
+
+## Inhoud aanvullen
+
+- `content/lessons.js`: leskaarten, verdiepende uitleg en meerkeuzevragen. Elke vraag heeft opties, een nulgebaseerde `answer` en een verklaring.
+- `index.html`: vergelijking, praktijkaanpak, begrippen en bronvermelding.
+- `styles.css`: responsive vormgeving en printweergave.
+- `app.js`: tabbladen en quiz met feedback en resultaatreview.
+
+Eigen praktijkcases, machinegegevens en lesmateriaal kunnen later worden toegevoegd. Er is nog geen upload-, AI- of gegevensimportfunctie. Echte meetgegevens zijn geen automatische onderhoudsadviezen; daarvoor zijn validatie en context nodig.
+
+## Onderbouwing
+
+De vergelijking is gebaseerd op het geraadpleegde publieke [Microsoft Predictive Maintenance-voorbeeld](https://github.com/Azure-Samples/MachineLearningSamples-PredictiveMaintenance). Dit is ouder, gearchiveerd materiaal; de conceptuele introductie is gebruikt, niet de verouderde installatiehandleiding. De uitleg is in eigen woorden, met extra nuance rond conditiegestuurd onderhoud, risico en onzekerheid. Cijfers en situaties zijn fictieve lesvoorbeelden.
+
+## Controle
+
+`node --check app.js` en `node --check content/lessons.js` controleren de JavaScript-syntaxis. `tests/browser.cjs` gebruikt Playwright (extern geïnstalleerd) voor echte browsercontroles van tabbladen, quiz, herkansing, mobiele weergave, lokale links en het projectpad van GitHub Pages. Zie het script voor de uitvoeropdracht.
