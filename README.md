@@ -52,3 +52,12 @@ De door de gebruiker aangeleverde [Volta-fiche De Gouden Acht (2020)](https://vo
 De elektrische reeks behandelt de thema’s van de Gouden 8; de overige achtfasenreeksen zijn eigen didactische indelingen en worden niet aan Volta toegeschreven. Geen van de beelden vervangt een machinegebonden procedure. De tekst behandelt onder meer restdruk, accumulatoren, veren, lastondersteuning en controle van de veilige toestand. Fasen zijn leeronderwerpen: de veilige volgorde van handelingen volgt uit de installatieprocedure (bijvoorbeeld eerst een last borgen voordat druk wordt afgebouwd).
 
 Educatieve website en lesmateriaal: gemaakt door dhr. Hermans. Deze vermelding staat zichtbaar bij de tekeningen en in de voettekst.
+
+
+## Compressoratelier
+
+`compressor.html` is een aparte educatieve machinecase voor alle zeven Atlas Copco LE-types. `content/compressors.js` bouwt gekoppelde inventarissen en preventieve, predictieve en correctieve plannen; `planner.js` rekent per kalenderdag de vroegste uren- of kalenderdeadline en twee onafhankelijke bundelscenario’s uit. `compressor.js` verzorgt de invoerhistoriek per taak, resultaten en CSV-exports (ook alle zeven types). Er zijn geen extra pakketten nodig. Open de case via de hoofdnavigatie.
+
+Lees [bronnotities en rekenafspraken](docs/compressor-bronnen.md) voor de overgenomen intervallen, het ontbrekende LE 10-filterinterval, de conservatieve 3.000 uur-keuze, voorgestelde predictieve frequenties en grenzen van de stilstandsvergelijking. De PDF wordt niet integraal gepubliceerd.
+
+Validatie: `node --test tests/planner.test.cjs` controleert modelkoppelingen, deadlines, kalendermaanden, stilstand, achterstand en bundeling. `node tests/compressor-browser.cjs` gebruikt Playwright en de bestaande lokale server vanuit `/workspace` voor de interactieve case en CSV-export. De generieke regressiecontrole blijft `node tests/browser.cjs`.
